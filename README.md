@@ -1,10 +1,10 @@
-## React Login/Register page 
+# React Login/Register page 
 
-# Built with:
+### Built with:
 nodejs : v11.9.0
 react: v16.10.2
 
-# Used:
+### Used:
 React Router
 
-# Demo
+### Demo

@@ -20,6 +20,7 @@ class App extends Component {
             <Route path="/register" component={RegisterPage} ></Route>
             <Route path="/login" component={LoginPage} ></Route>
             <PrivateRoute path="/home"><Home/></PrivateRoute>
+            <Redirect from="*" to="/" />
           </Switch>
         </Router>
       </React.Fragment>

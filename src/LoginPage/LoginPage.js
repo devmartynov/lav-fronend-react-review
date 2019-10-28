@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import InputComponent from '../../src/InputComponent/InputComponent';
 import { withRouter, Route, Redirect } from 'react-router';
 
-const Auth = {
+export const Auth = {
     isAuth: false,
     authentication() {
         this.isAuth = true;

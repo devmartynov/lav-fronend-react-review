@@ -51,7 +51,7 @@ class RegisterPage extends Component {
             <div className="input-form__field">  
                <p className="input-form__fieldText">Have an account? 
                 <Link to="/login" 
-                  className="input-form__link input-form__link_underlined" >Login
+                  className="input-form__link input-form__link_underlined"> Login
                 </Link></p>
             </div>
            </form>

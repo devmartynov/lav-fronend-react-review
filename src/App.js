@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import RegisterPage from "../src/RegisterPage/RegisterPage";
-import LoginPage from "../src/LoginPage/LoginPage";
+import LoginPage, { PrivateRoute } from "../src/LoginPage/LoginPage";
+import Home from "../src/Home/Home";
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path="/" render={() => (<Redirect to="/login"/>)}/>
             <Route path="/register" component={RegisterPage} ></Route>
             <Route path="/login" component={LoginPage} ></Route>
+            <PrivateRoute path="/home"><Home/></PrivateRoute>
           </Switch>
         </Router>
       </React.Fragment>

@@ -34,43 +34,13 @@ class RegisterPage extends Component {
             <h1 className="input-form__title input-form__title_big">Register Form</h1>
             <div className="input-form__error-message"></div>
 
-            {/* <label className="input-form__field">
-            <span className="input-form__text-label">login</span>
-            <input className="input-form__text-input" 
-                   type="text" 
-                   name="login" 
-                   autoComplete="on" 
-                   required />
-            </label> */}
+            <InputComponent name="login" type="text" onChange={this.handleChange}/>
 
-            <InputComponent name="login"/>
+            <InputComponent name="password" type="password" onChange={this.handleChange}/>
 
-            <label className="input-form__field">
-            <span className="input-form__text-label">password</span>
-            <input className="input-form__text-input" 
-                   type="password" 
-                   name="password" 
-                   autoComplete="on" 
-                   required />
-            </label>
+            <InputComponent name="passwordRepeat" type="password" onChange={this.handleChange}/>
 
-            <label className="input-form__field">
-              <span className="input-form__text-label">repeat password</span>
-              <input className="input-form__text-input" 
-                     type="password" 
-                     name="passwordRepeat" 
-                     autoComplete="on" 
-                     required />
-            </label>
-
-            <label className="input-form__field">
-              <span className="input-form__text-label">name</span>
-              <input className="input-form__text-input" 
-                     type="text" 
-                     name="name" 
-                     autoComplete="on" 
-                     required />
-            </label>
+            <InputComponent name="name" type="text" onChange={this.handleChange}/>
 
             <div className="input-form__field">
               <button className="input-form__button input-form__button_orange" 

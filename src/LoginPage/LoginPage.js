@@ -1,7 +1,28 @@
 import React, { Component } from 'react';
 import './LoginPage.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import InputComponent from '../../src/InputComponent/InputComponent';
+import { withRouter, Route, Redirect } from 'react-router';
+
+const Auth = {
+    isAuth: false,
+    authentication() {
+        this.isAuth = true;
+    },
+    signout() {
+        this.isAuth = false;
+    }
+}
+
+export function PrivateRoute({ children, ...rest }) {
+    console.log(Auth.isAuth);
+    return (
+        <Route 
+          {...rest}
+          render={() =>
+            Auth.isAuth ? ( children) : (<Redirect to ={{ pathname: "/login" }} />)}
+    /> )
+}
 
 class LoginPage extends Component {
     constructor(props) {
@@ -22,6 +43,7 @@ class LoginPage extends Component {
            [name]: value
         })
     }
+
     login = (e) => {
         e.preventDefault();
         this.setState ({
@@ -29,6 +51,10 @@ class LoginPage extends Component {
         })
         const { username, password } = this.state;
         console.log('login process with ' + username + ' and ' + password);
+        Auth.isAuth = true;
+        console.log(Auth.isAuth);
+        
+        this.props.history.push('/home'); //using props from withRouter
     }
 
     render() {
@@ -40,26 +66,8 @@ class LoginPage extends Component {
             <h1 className="input-form__title input-form__title_big">Welcome</h1>
             <div className="input-form__error-message"></div>
 
-            {/* <label className="input-form__field">
-              <span className="input-form__text-label">username</span>
-              <input className="input-form__text-input" 
-                     type="text" 
-                     name="username" 
-                     autoComplete="on" 
-                     onChange={this.handleChange}
-                     required />
-            </label> */}
             <InputComponent name="username" type="text" onChange={this.handleChange} />
 
-            {/* <label className="input-form__field">
-              <span className="input-form__text-label">password</span>
-              <input className="input-form__text-input" 
-                     type="password" 
-                     name="password" 
-                     autoComplete="on" 
-                     onChange={this.handleChange}
-                     required />
-            </label> */}
             <InputComponent name="password" type="password" onChange={this.handleChange} />
 
             <div className="input-form__field">
@@ -81,4 +89,4 @@ class LoginPage extends Component {
                 }
             }
             
-export default LoginPage;
+export default withRouter(LoginPage);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './LoginPage.css';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import InputComponent from '../../src/InputComponent/InputComponent';
 import { withRouter, Route, Redirect } from 'react-router';
 

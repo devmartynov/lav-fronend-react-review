@@ -24,16 +24,11 @@ function homepage() {
     return <h2>Welcome to home page</h2>
 }
 
-// function properties() {
-//     return <h2>This is properties page</h2>
-// }
-
 function logout() {
     Auth.signout();
 }
 
 const Home = () => {
-
     return (
         <Router>
             <div className="mainStyle">

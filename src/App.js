@@ -19,8 +19,7 @@ class App extends Component {
             <Route exact path="/" render={() => (<Redirect to="/login"/>)}/>
             <Route path="/register" component={RegisterPage} ></Route>
             <Route path="/login" component={LoginPage} ></Route>
-            <PrivateRoute path="/home"><Home/></PrivateRoute>
-            {/* <Redirect from="*" to="/" /> */}
+            <PrivateRoute path="/home" ><Home /></PrivateRoute>
           </Switch>
         </Router>
       </React.Fragment>

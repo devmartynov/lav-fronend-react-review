@@ -18,9 +18,9 @@ class RegisterPage extends Component {
 
     handleChange = (e) => {
         e.preventDefault();
-        const {name , value } = e.target;
-        this.setState ({
-           [name]: value
+        const { name, value } = e.target;
+        this.setState({
+            [name]: value
         })
     }
 
@@ -29,33 +29,34 @@ class RegisterPage extends Component {
     }
     render() {
         return (
-          <div className="main-page-container">
-          <form className="input-form">
-            <h1 className="input-form__title input-form__title_big">Register Form</h1>
-            <div className="input-form__error-message"></div>
+            <div className="main-page-container">
+                <form className="input-form">
+                    <h1 className="input-form__title input-form__title_big">Register Form</h1>
+                    <div className="input-form__error-message"></div>
 
-            <InputComponent name="login" type="text" onChange={this.handleChange}/>
+                    <InputComponent name="login" type="text" onChange={this.handleChange} />
 
-            <InputComponent name="password" type="password" onChange={this.handleChange}/>
+                    <InputComponent name="password" type="password" onChange={this.handleChange} />
 
-            <InputComponent name="passwordRepeat" type="password" onChange={this.handleChange}/>
+                    <InputComponent name="passwordRepeat" type="password" onChange={this.handleChange} />
 
-            <InputComponent name="name" type="text" onChange={this.handleChange}/>
+                    <InputComponent name="name" type="text" onChange={this.handleChange} />
 
-            <div className="input-form__field">
-              <button className="input-form__button input-form__button_orange" 
-                      type="button" 
-                      onClick={this.register}>Register</button>
+                    <div className="input-form__field">
+                        <button className="input-form__button input-form__button_orange"
+                            type="button"
+                            onClick={this.register}>Register</button>
+                    </div>
+
+                    <div className="input-form__field">
+                        <p className="input-form__fieldText">Have an account?
+                            <Link to="/login"
+                                className="input-form__link input-form__link_underlined"> Login
+                            </Link>
+                        </p>
+                    </div>
+                </form>
             </div>
-
-            <div className="input-form__field">  
-               <p className="input-form__fieldText">Have an account? 
-                <Link to="/login" 
-                  className="input-form__link input-form__link_underlined"> Login
-                </Link></p>
-            </div>
-           </form>
-           </div>
         )
     }
 }

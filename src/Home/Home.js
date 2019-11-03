@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { HashRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import './Home.css';
 import { Auth } from '../LoginPage/LoginPage';

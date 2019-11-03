@@ -7,7 +7,7 @@ const InputComponent = (props) => (
         <label className="input-form__field">
             <span className="input-form__text-label">{props.name}</span>
             <input className="input-form__text-input"
-                type={props.text}
+                type={props.type}
                 name={props.name}
                 autoComplete="on"
                 onChange={props.onChange}

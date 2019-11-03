@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import { Route,  Router, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import RegisterPage from "../src/RegisterPage/RegisterPage";
 import LoginPage, { PrivateRoute } from "../src/LoginPage/LoginPage";
 import Home from "../src/Home/Home";
+
+//import createBrowserHistory from 'history/createBrowserHistory'
+import { createBrowserHistory } from 'history';
+export const history = createBrowserHistory();
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment >
-        <Router>
+        <Router history={history}>
           <Switch>
             <Route exact path="/" render={() => (<Redirect to="/login"/>)}/>
             <Route path="/register" component={RegisterPage} ></Route>

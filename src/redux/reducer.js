@@ -1,6 +1,5 @@
 import { handleErrors, make_base_auth } from './loginFunctions';
-// import { browserHistory } from 'react-router-dom';
-import { history } from '../App'; 
+import { history } from '../App';
 
 const SET_LOGIN_PENDING = 'SET_LOGIN_PENDING';
 const SET_LOGIN_SUCCESS = 'SET_LOGIN_SUCCESS';
@@ -28,15 +27,17 @@ export function login(username, password) {
         }).then(handleErrors)
             .then(response => {
                 console.log("ok");
-                return response.json()}).then((data) => {
-                    dispatch(setLoginPending(false));
-                    dispatch(setLoginError(false));
-                    dispatch(setLoginSuccess(true));
-                    
-                    history.push('/home');
-                })
+                return response.json()
+            }).then((data) => {
+                dispatch(setLoginPending(false));
+                dispatch(setLoginError(false));
+                dispatch(setLoginSuccess(true));
+
+                history.push('/home');
+            })
             .catch(error => {
                 console.log(error);
+                dispatch(setLoginSuccess(false));
                 dispatch(setLoginPending(false));
                 dispatch(setLoginError(error));
             })

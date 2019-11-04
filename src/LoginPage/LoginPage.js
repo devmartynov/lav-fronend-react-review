@@ -27,15 +27,17 @@ export function PrivateRoute({ children, ...rest }) {
         />)
 }
 
+const initialState = {
+    username: '',
+    password: '',
+    submitted: false
+}
+
 class LoginPage extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            username: '',
-            password: '',
-            submitted: false
-        };
+        this.state = initialState;
     }
 
     handleChange = (e) => {
@@ -56,8 +58,9 @@ class LoginPage extends Component {
         console.log('login process with ' + username + ' and ' + password);
         Auth.isAuth = true;
         console.log(Auth.isAuth);
-        this.props.login(username,password);
-         //this.props.history.push('/home'); //using props from withRouter
+        this.props.login(username, password);
+        this.setState(initialState);
+        console.log('username - ', this.state.username);
     }
 
     render() {

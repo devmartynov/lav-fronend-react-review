@@ -10,6 +10,7 @@ const InputComponent = (props) => (
                 type={props.type}
                 name={props.name}
                 autoComplete="on"
+                value={props.value}
                 onChange={props.onChange}
                 required />
         </label>

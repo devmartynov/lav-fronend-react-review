@@ -29,8 +29,7 @@ export function PrivateRoute({ children, ...rest }) {
 
 const initialState = {
     username: '',
-    password: '',
-    submitted: false
+    password: ''
 }
 
 class LoginPage extends Component {
@@ -43,28 +42,24 @@ class LoginPage extends Component {
     handleChange = (e) => {
         e.preventDefault();
         const { name, value } = e.target;
-        console.log(e.target);
         this.setState({
+            ...this.state,
             [name]: value
         })
     }
 
     _submit = (e) => {
         e.preventDefault();
-        this.setState({
-            submitted: true
-        })
         const { username, password } = this.state;
         console.log('login process with ' + username + ' and ' + password);
         Auth.isAuth = true;
-        console.log(Auth.isAuth);
         this.props.login(username, password);
-        this.setState(initialState);
-        console.log('username - ', this.state.username);
+        this.setState(initialState,
+            () => { console.log('resetted state = ', this.state) });
     }
 
     render() {
-        //  const { username, password, submitted } = this.state;
+        const { username, password } = this.state;
         let { isLoginPending, isLoginSuccess, loginError } = this.props;
         return (
             <div className="main-page-container">
@@ -77,8 +72,14 @@ class LoginPage extends Component {
                         {loginError && <div>{loginError.message}</div>}
                     </div>
 
-                    <InputComponent name="username" type="text" onChange={this.handleChange} />
-                    <InputComponent name="password" type="password" onChange={this.handleChange} />
+                    <InputComponent value={username} 
+                                    name="username" 
+                                    type="text" 
+                                    onChange={this.handleChange} />
+                    <InputComponent value={password} 
+                                    name="password" 
+                                    type="password" 
+                                    onChange={this.handleChange} />
 
                     <div className="input-form__field">
                         <button className="input-form__button input-form__button_orange"

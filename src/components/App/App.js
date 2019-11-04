@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Router, Switch, Redirect } from 'react-router-dom';
 import './App.css';
-import RegisterPage from "../src/RegisterPage/RegisterPage";
-import LoginPage, { PrivateRoute } from "../src/LoginPage/LoginPage";
-import Home from "../src/Home/Home";
+import RegisterPage from "../RegisterPage/RegisterPage";
+import LoginPage, { PrivateRoute } from "../LoginPage/LoginPage";
+import Home from "../Home/Home";
 
 import { createBrowserHistory } from 'history';
 export const history = createBrowserHistory();

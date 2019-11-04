@@ -1,5 +1,5 @@
 import { handleErrors, make_base_auth } from './loginFunctions';
-import { history } from '../App';
+import { history } from '../components/App/App';
 
 const SET_LOGIN_PENDING = 'SET_LOGIN_PENDING';
 const SET_LOGIN_SUCCESS = 'SET_LOGIN_SUCCESS';

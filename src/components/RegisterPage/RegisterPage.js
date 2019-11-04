@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './RegisterPage.css';
 import { Link } from 'react-router-dom';
-import InputComponent from '../../src/InputComponent/InputComponent';
+import InputComponent from '../InputComponent/InputComponent';
 
 class RegisterPage extends Component {
     constructor(props) {

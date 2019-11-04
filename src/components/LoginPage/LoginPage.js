@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './LoginPage.css';
 import { Link } from 'react-router-dom';
-import InputComponent from '../../src/InputComponent/InputComponent';
+import InputComponent from '../InputComponent/InputComponent';
 import { withRouter, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { login } from '../redux/reducer';
+import { login } from '../../redux/reducer';
 
 export const Auth = {
     isAuth: false,

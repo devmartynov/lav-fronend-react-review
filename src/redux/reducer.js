@@ -1,9 +1,9 @@
-import { handleErrors, make_base_auth } from './loginFunctions';
+import { handleErrors, make_base_auth } from '../utils/loginFunctions';
 import { history } from '../components/App/App';
+import { SET_LOGIN_PENDING,
+         SET_LOGIN_SUCCESS,
+         SET_LOGIN_ERROR } from '../actions/actionTypes';
 
-const SET_LOGIN_PENDING = 'SET_LOGIN_PENDING';
-const SET_LOGIN_SUCCESS = 'SET_LOGIN_SUCCESS';
-const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
 const initialState = {
     isLoginSuccess: false,
     isLoginPending: false,

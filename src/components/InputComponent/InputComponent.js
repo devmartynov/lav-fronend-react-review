@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import './InputComponent.css';
 
 const InputComponent = (props) => (
@@ -17,5 +17,12 @@ const InputComponent = (props) => (
 
     </div>
 )
+
+InputComponent.propTypes = {
+    name: PropTypes.string,
+    type: PropTypes.string,
+    value: PropTypes.string,
+    onChange: PropTypes.func
+}
 
 export default InputComponent;

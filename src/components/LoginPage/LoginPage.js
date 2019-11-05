@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './LoginPage.css';
 import { Link } from 'react-router-dom';
 import InputComponent from '../InputComponent/InputComponent';
-import { withRouter, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { login } from '../../redux/reducer';
@@ -18,7 +18,7 @@ export const Auth = {
 }
 
 export function PrivateRoute({ children, ...rest }) {
-    console.log(Auth.isAuth);
+    console.log('Auth.isAuth ', Auth.isAuth);
     return (
         <Route
             {...rest}
@@ -43,7 +43,6 @@ class LoginPage extends Component {
         e.preventDefault();
         const { name, value } = e.target;
         this.setState({
-            ...this.state,
             [name]: value
         })
     }
@@ -72,14 +71,14 @@ class LoginPage extends Component {
                         {loginError && <div>{loginError.message}</div>}
                     </div>
 
-                    <InputComponent value={username} 
-                                    name="username" 
-                                    type="text" 
-                                    onChange={this.handleChange} />
-                    <InputComponent value={password} 
-                                    name="password" 
-                                    type="password" 
-                                    onChange={this.handleChange} />
+                    <InputComponent value={username}
+                        name="username"
+                        type="text"
+                        onChange={this.handleChange} />
+                    <InputComponent value={password}
+                        name="password"
+                        type="password"
+                        onChange={this.handleChange} />
 
                     <div className="input-form__field">
                         <button className="input-form__button input-form__button_orange"
@@ -116,8 +115,8 @@ const mapDispatchToProps = (dispatch) => {
     };
 }
 
+
 export default compose(
-    withRouter,
     connect(mapStateToProps, mapDispatchToProps)
 )(LoginPage);
 

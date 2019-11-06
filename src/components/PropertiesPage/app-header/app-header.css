@@ -1,0 +1,9 @@
+.input-form__title {
+    color: #14213d;
+    margin: 0;
+}
+
+.input-form__title_big {
+    font-size: 22px;
+    font-weight: 400;
+}

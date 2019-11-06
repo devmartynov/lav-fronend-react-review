@@ -8,7 +8,7 @@ import PropertiesPage from '../PropertiesPage/PropertiesPage';
 const routes = [
     {
         path: "/properties",
-        main: () => PropertiesPage()
+        main: PropertiesPage
     },
     {
         path: "/profile",

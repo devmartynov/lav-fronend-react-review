@@ -1,18 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './PropertiesPage.css';
+import AppHeader from './app-header/app-header';
+import ItemAddForm from './item-add-form/item-add-form';
+import TodoList from './todo-list/todo-list';
 
-const PropertiesPage = () => {
-    return (
-        <div>
-            <h1 className="input-form__title input-form__title-profile_big">Properties</h1>
-            <div id="todo-form" className="header">
-                <input id="add-input" type="text" />
-                <button id="add-button" type="submit">Add</button>
+class PropertiesPage extends Component {
+
+    genId = 50;
+
+    state = {
+        items: [
+            { id: 1, label: 'Turgeneva 212' },
+            { id: 2, label: 'Merkela 55' },
+            { id: 3, label: 'Lacplesa 42' }]
+    }
+
+    onItemAdded = (label) => {
+        this.setState((state) => {
+            const item = this.createItem(label);
+            return { items: [...state.items, item] }
+        })
+    }
+
+    createItem = (label) => {
+        return {
+            id: this.genId++,
+            label: label
+        }
+    }
+
+    deleteItem = (index) => {
+        // console.log('id = ', index);
+        const { items } = this.state;
+        this.setState({
+            items: items.filter((item) => {
+                return item.id !== index
+            }),
+        });
+    }
+
+    render() {
+        const { items } = this.state;
+
+        return (
+            <div className="App">
+                <AppHeader />
+                <ItemAddForm onItemAdded={this.onItemAdded} />
+                <TodoList items={items} onDelete={this.deleteItem} />
             </div>
-            <ul id="todo-list">
-            </ul>
-        </div>
-    )
+        )
+    }
 }
 
 export default PropertiesPage;

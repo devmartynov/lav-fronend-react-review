@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './PropertiesPage.css';
-import AppHeader from './app-header/app-header';
-import ItemAddForm from './item-add-form/item-add-form';
-import TodoList from './todo-list/todo-list';
+import AppHeader from './AppHeader/AppHeader';
+import ItemAddForm from './ItemAddForm/ItemAddForm';
+import TodoList from './TodoList/TodoList';
 
 class PropertiesPage extends Component {
 

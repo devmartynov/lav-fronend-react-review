@@ -4,6 +4,7 @@ import './Home.css';
 import { Auth } from '../LoginPage/LoginPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import PropertiesPage from '../PropertiesPage/PropertiesPage';
+import CurrencyConverter from '../CurrencyConverter/CurrencyConverter';
 
 const routes = [
     {
@@ -15,9 +16,14 @@ const routes = [
         main: () => ProfilePage()
     },
     {
+        path: "/currencyConverter",
+        main: CurrencyConverter
+    },
+    {
         path: "/",
         main: () => homepage()
-    }
+    },
+    
 ]
 
 function homepage() {
@@ -67,8 +73,14 @@ const Home = () => {
 
                             <div className="menuBar__options">
                                 <div className="menuBar__options-content">
-                                    <p><Link to="/profile">Profile</Link></p>
+                                    <p><Link to="/home">Home</Link></p>
+                                    <p><Link to="/properties">Service</Link></p>
+                                    <p><Link to="/properties">Weather</Link></p>
+                                    <p><Link to="/properties">Movie</Link></p>
+                                    <p><Link to="/currencyConverter">Currency Converter</Link></p>
+                                    <p><Link to="/properties">Calculator</Link></p>
                                     <p><Link to="/properties">Properties</Link></p>
+                                    <p><Link to="/profile">Social Card</Link></p>
                                 </div>
                             </div>
 

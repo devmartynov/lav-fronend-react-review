@@ -28,7 +28,7 @@ button {
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-    line-height: 36px;
+    /* line-height: 36px; */
     vertical-align: middle;
 }
 

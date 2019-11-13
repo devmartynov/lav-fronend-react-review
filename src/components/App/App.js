@@ -6,6 +6,7 @@ import LoginPage, { PrivateRoute } from "../LoginPage/LoginPage";
 import Home from "../Home/Home";
 
 import { createBrowserHistory } from 'history';
+import CurrencyConverter from '../CurrencyConverter/CurrencyConverter';
 export const history = createBrowserHistory();
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route path="/register" component={RegisterPage} ></Route>
             <Route path="/login" component={LoginPage} ></Route>
             <Route path="/home" component={Home} ></Route>
+            <Route path="/currencyConverter" component={CurrencyConverter} ></Route>
             {/* <PrivateRoute path="/home" ><Home /></PrivateRoute> */}
           </Switch>
         </Router>

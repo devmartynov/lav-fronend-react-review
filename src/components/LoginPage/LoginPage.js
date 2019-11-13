@@ -68,7 +68,7 @@ class LoginPage extends Component {
                     <div className="input-form__error-message">
                         {isLoginPending && <div>Please wait...</div>}
                         {isLoginSuccess && <div>Success.</div>}
-                        {loginError && <div>{loginError.message}</div>}
+                        {loginError && <div>Incorrect Username or Password {loginError.message}</div>}
                     </div>
 
                     <InputComponent value={username}

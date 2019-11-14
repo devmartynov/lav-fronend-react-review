@@ -6,6 +6,7 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import PropertiesPage from '../PropertiesPage/PropertiesPage';
 import CurrencyConverter from '../CurrencyConverter/CurrencyConverter';
 import Weather from '../Weather/Weather';
+import Calculator from '../Calculator/Calculator';
 
 const routes = [
     {
@@ -23,6 +24,10 @@ const routes = [
     {
         path: "/weather",
         main: Weather
+    },
+    {
+        path: "/calculator",
+        main: Calculator
     },
     {
         path: "/",
@@ -83,7 +88,7 @@ const Home = () => {
                                     <p><Link to="/weather">Weather</Link></p>
                                     <p><Link to="/properties">Movie</Link></p>
                                     <p><Link to="/currencyConverter">Currency Converter</Link></p>
-                                    <p><Link to="/properties">Calculator</Link></p>
+                                    <p><Link to="/calculator">Calculator</Link></p>
                                     <p><Link to="/properties">Properties</Link></p>
                                     <p><Link to="/profile">Social Card</Link></p>
                                 </div>

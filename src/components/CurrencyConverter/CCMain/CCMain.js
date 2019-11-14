@@ -25,7 +25,7 @@ class CCMain extends Component {
                 //console.log(currencyAr);
                 this.setState({
                     currencyList: currencyAr
-                }, () => console.log(this.state.currencyList))
+                })
             })
             .catch((err) => {
                 console.log('Error = ', err);
@@ -58,7 +58,7 @@ class CCMain extends Component {
         fetch(`https://api.exchangeratesapi.io/latest?base=${this.state.currencyBase}&symbols=${this.state.currencyTo}`)
             .then((res) => { return res.json() })
             .then((result) => {
-                console.log(result.rates);
+                //console.log(result.rates);
                 this.setState({
                     finalResult: result.rates[this.state.currencyTo] * this.state.currencyAmount
                 }, () => { console.log('result = ', this.state.finalResult) })

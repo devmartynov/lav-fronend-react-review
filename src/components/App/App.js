@@ -7,6 +7,7 @@ import Home from "../Home/Home";
 
 import { createBrowserHistory } from 'history';
 import CurrencyConverter from '../CurrencyConverter/CurrencyConverter';
+import Weather from '../Weather/Weather';
 export const history = createBrowserHistory();
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/login" component={LoginPage} ></Route>
             <Route path="/home" component={Home} ></Route>
             <Route path="/currencyConverter" component={CurrencyConverter} ></Route>
+            <Route path="/weather" component={Weather} ></Route>
             {/* <PrivateRoute path="/home" ><Home /></PrivateRoute> */}
           </Switch>
         </Router>

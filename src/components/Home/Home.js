@@ -5,6 +5,7 @@ import { Auth } from '../LoginPage/LoginPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import PropertiesPage from '../PropertiesPage/PropertiesPage';
 import CurrencyConverter from '../CurrencyConverter/CurrencyConverter';
+import Weather from '../Weather/Weather';
 
 const routes = [
     {
@@ -18,6 +19,10 @@ const routes = [
     {
         path: "/currencyConverter",
         main: CurrencyConverter
+    },
+    {
+        path: "/weather",
+        main: Weather
     },
     {
         path: "/",
@@ -75,7 +80,7 @@ const Home = () => {
                                 <div className="menuBar__options-content">
                                     <p><Link to="/home">Home</Link></p>
                                     <p><Link to="/properties">Service</Link></p>
-                                    <p><Link to="/properties">Weather</Link></p>
+                                    <p><Link to="/weather">Weather</Link></p>
                                     <p><Link to="/properties">Movie</Link></p>
                                     <p><Link to="/currencyConverter">Currency Converter</Link></p>
                                     <p><Link to="/properties">Calculator</Link></p>

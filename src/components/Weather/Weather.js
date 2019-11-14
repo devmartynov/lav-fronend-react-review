@@ -36,7 +36,7 @@ class Weather extends Component {
     getWeather = (e) => {
         e.preventDefault();
         console.log('Getting weather ...');
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.city},${this.state.country}&units=metric&appid=${process.env.REACT_APP_WEATHER_APPID}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city},${this.state.country}&units=metric&appid=${process.env.REACT_APP_WEATHER_APPID}`)
             .then((res) => { return res.json() })
             .then((result) => {
                 //console.log(result.weather[0].main);

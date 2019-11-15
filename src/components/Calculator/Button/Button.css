@@ -11,3 +11,22 @@
 .btn-orange {
     background-color: orange;
 }
+.btn-grey {
+    background-color: grey;
+}
+.btn-lightgrey {
+    background-color: lightgrey;
+}
+.btn-text-color{
+    color: white
+}
+.btn-input {
+    height: 50px;
+    width: 200px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: flex-end;
+    padding-right: 20px;
+}

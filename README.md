@@ -13,4 +13,4 @@ React Router
 Redux
 
 ### Demo
-https://frontendreact.netlify.com/
+https://frontendreact.netlify.com/home

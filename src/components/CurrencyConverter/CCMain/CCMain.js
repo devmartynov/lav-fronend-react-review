@@ -1,67 +1,41 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import {
+    fetchCurrencies,
+    updateCurrencyBase,
+    updateCurrencyTarget,
+    updateCurrencyAmount,
+    calculateResult
+} from "../../../../src/actions/actionCalc";
 import './CCMain.css';
+import { CALCULATOR_URL_API } from "../../../actions/actionTypes";
 
-const initiateState = {
-    currencyBase: 'USD',
-    currencyTo: 'GBP',
-    currencyList: [],
-    currencyAmount: 1,
-    finalResult: 0
-};
-
-class CCMain extends Component {
-    constructor(props) {
-        super(props);
-        this.state = initiateState;
-    }
+export class CCMain extends Component {
     componentDidMount() {
-        fetch("https://api.exchangeratesapi.io/latest")
-            .then((res) => { return res.json() })
-            .then((result) => {
-                const currencyAr = ["EUR"];
-                for (let key in result.rates) {
-                    currencyAr.push(key);
-                }
-                //console.log(currencyAr);
-                this.setState({
-                    currencyList: currencyAr
-                })
-            })
-            .catch((err) => {
-                console.log('Error = ', err);
-            })
+        this.props.fetchCurrencies();
     }
     onChange = (e) => {
         e.preventDefault();
         const { value } = e.target;
-        this.setState({
-            currencyAmount: value
-        })
+        this.props.updateCurrencyAmount(value);
     }
 
     change = (event) => {
         event.preventDefault();
         if (event.target.name === "from") {
-            this.setState({
-                currencyBase: event.target.value
-            }, () => console.log(this.state.currencyBase))
+            this.props.updateCurrencyBase(event.target.value);
         } else if (event.target.name === "to") {
-            this.setState({
-                currencyTo: event.target.value
-            }, () => console.log(this.state.currencyTo))
+            this.props.updateCurrencyTarget(event.target.value);
         }
     }
 
     convert = (e) => {
         e.preventDefault();
         console.log('converting ...');
-        fetch(`https://api.exchangeratesapi.io/latest?base=${this.state.currencyBase}&symbols=${this.state.currencyTo}`)
+        fetch(`${CALCULATOR_URL_API}?base=${this.props.currencyBase}&symbols=${this.props.currencyTo}`)
             .then((res) => { return res.json() })
             .then((result) => {
-                //console.log(result.rates);
-                this.setState({
-                    finalResult: result.rates[this.state.currencyTo] * this.state.currencyAmount
-                }, () => { console.log('result = ', this.state.finalResult) })
+                this.props.calculateResult(result);
             })
             .catch(err => {
                 console.log('Error = ', err);
@@ -72,28 +46,45 @@ class CCMain extends Component {
             <div>
                 <input type="text"
                     name="currencyAmount"
-                    value={this.state.currencyAmount}
+                    value={this.props.currencyAmount}
                     onChange={this.onChange} />
                 <select name="from"
                     onChange={this.change}
-                    value={this.state.currencyBase}>
-                    {this.state.currencyList.map((item, key) =>
+                    value={this.props.currencyBase}>
+                    {this.props.currencyList.map((item, key) =>
                         <option key={key}>{item}</option>)}
                 </select>
                 <select name="to"
                     onChange={this.change}
-                    value={this.state.currencyTo}>
-                    {this.state.currencyList.map((item, key) =>
+                    value={this.props.currencyTo}>
+                    {this.props.currencyList.map((item, key) =>
                         <option key={key}>{item}</option>)}
                 </select>
                 <button className="button-currency__orange"
                     onClick={this.convert}>Convert</button>
-                <div>Result : {this.state.finalResult}</div>
+                <div>Result : {this.props.finalResult}</div>
             </div>
-
         )
     }
-
 }
 
-export default CCMain;
+const mapStateToProps = state => ({
+    currencyAmount: state.reducerCalc.currencyAmount,
+    currencyList: state.reducerCalc.currencyList,
+    currencyBase: state.reducerCalc.currencyBase,
+    currencyTo: state.reducerCalc.currencyTo,
+    finalResult: state.reducerCalc.finalResult
+});
+
+const mapDispatchToProps = dispatch => ({
+    fetchCurrencies: () => dispatch(fetchCurrencies()),
+    updateCurrencyBase: (currency) => dispatch(updateCurrencyBase(currency)),
+    updateCurrencyTarget: (currency) => dispatch(updateCurrencyTarget(currency)),
+    updateCurrencyAmount: (value) => dispatch(updateCurrencyAmount(value)),
+    calculateResult: (result) => dispatch(calculateResult(result)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CCMain);

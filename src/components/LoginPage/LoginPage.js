@@ -5,7 +5,7 @@ import InputComponent from '../InputComponent/InputComponent';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { login } from '../../redux/reducer';
+import { login } from '../../reducers/reducer';
 
 export const Auth = {
     isAuth: false,

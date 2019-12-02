@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import reducer from "./reducer";
+import reducerAuth from "./reducerAuth";
 import reducerCalc from "./reducerCalc";
 
 export default combineReducers({
-    reducer,
+    reducerAuth,
     reducerCalc
 });

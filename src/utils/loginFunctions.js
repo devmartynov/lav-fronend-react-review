@@ -5,12 +5,10 @@ const make_base_auth = (user, password) => {
 }
 
 const handleErrors = (response) => {
-    //console.log('response = ', response);
     if (!response.ok) {
         throw Error(response.status);
     }
     return response;
 }
-
 
 export {handleErrors, make_base_auth}

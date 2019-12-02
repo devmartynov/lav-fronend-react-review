@@ -8,7 +8,7 @@ import {
     calculateResult
 } from "../../../../src/actions/actionCalc";
 import './CCMain.css';
-import { CALCULATOR_URL_API } from "../../../actions/actionTypes";
+import { CURRENCY_CONVERTER_URL_API } from "../../../actions/actionTypes";
 
 export class CCMain extends Component {
     componentDidMount() {
@@ -32,7 +32,7 @@ export class CCMain extends Component {
     convert = (e) => {
         e.preventDefault();
         console.log('converting ...');
-        fetch(`${CALCULATOR_URL_API}?base=${this.props.currencyBase}&symbols=${this.props.currencyTo}`)
+        fetch(`${CURRENCY_CONVERTER_URL_API}?base=${this.props.currencyBase}&symbols=${this.props.currencyTo}`)
             .then((res) => { return res.json() })
             .then((result) => {
                 this.props.calculateResult(result);

@@ -1,4 +1,4 @@
-import { CALCULATOR_URL_API } from "./actionTypes";
+import { CURRENCY_CONVERTER_URL_API } from "./actionTypes";
 import store from '../redux/store';
 
 export function fetchCurrencies() {
@@ -44,7 +44,7 @@ export function updateCurBase(currency) {
 
 export function getCurrenciesList() {
     return dispatch => {
-        fetch(CALCULATOR_URL_API)
+        fetch(CURRENCY_CONVERTER_URL_API)
             .then((res) => { return res.json() })
             .then((result) => {
                 const currencyAr = ["EUR"];

@@ -1,21 +1,17 @@
 import { handleErrors, make_base_auth } from '../utils/loginFunctions';
 import { history } from '../components/App/App';
-import { SET_LOGIN_PENDING,
-         SET_LOGIN_SUCCESS,
-         SET_LOGIN_ERROR } from '../actions/actionTypes';
-
-const initialState = {
-    isLoginSuccess: false,
-    isLoginPending: false,
-    loginError: null
-}
+import {
+    SET_LOGIN_PENDING,
+    SET_LOGIN_SUCCESS,
+    SET_LOGIN_ERROR,
+    BACKEND_URL
+} from '../actions/actionTypes';
 
 export function login(username, password) {
     return (dispatch) => {
         dispatch(setLoginPending(true));
 
-        const backendURL = "https://e-services-backend.herokuapp.com/v1/";
-        const url = backendURL + "me";
+        const url = BACKEND_URL + "me";
         const headers = new Headers();
         console.log(username, password)
         headers.append("Authorization", make_base_auth(username, password));
@@ -63,22 +59,5 @@ function setLoginError(loginError) {
     return {
         type: SET_LOGIN_ERROR,
         loginError
-    }
-}
-
-
-export default function reducer(state = initialState, action) {
-    switch (action.type) {
-        case SET_LOGIN_PENDING:
-            return { ...state, ...{ isLoginPending: action.isLoginPending } }
-
-        case SET_LOGIN_SUCCESS:
-            return { ...state, ...{ isLoginSuccess: action.isLoginSuccess } }
-
-        case SET_LOGIN_ERROR:
-            return { ...state, ...{ loginError: action.loginError } }
-
-        default:
-            return state;
     }
 }

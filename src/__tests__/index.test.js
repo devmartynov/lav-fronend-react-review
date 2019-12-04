@@ -1,7 +1,13 @@
-jest.mock("react-dom");
+import * as actions from '../actions/actionCalcCurr';
 
-describe("App Entry Point - /src/index.js", () => {
-  it("renders app without error", () => {
-    require("../../src/index.js");
-  });
-});
+describe('actions', () => {
+    it('should create an action', () => {
+        const result = 123;
+        const expectedAction = {
+            type: 'CALCULATE_TOTAL_AMOUNT',
+            result
+        }
+        expect(actions.calculateResultAmount(result)).toEqual(expectedAction)
+    })
+})
+

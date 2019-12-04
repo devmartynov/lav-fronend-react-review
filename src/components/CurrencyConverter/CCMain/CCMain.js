@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 import {
     fetchCurrencies,
     updateCurrencyBase,
     updateCurrencyTarget,
     updateCurrencyAmount,
     calculateResult
-} from "../../../../src/actions/actionCalc";
+} from "../../../actions/actionCalcCurr";
 import './CCMain.css';
 import { CURRENCY_CONVERTER_URL_API } from "../../../actions/actionTypes";
 
@@ -16,7 +17,7 @@ export class CCMain extends Component {
     }
     onChange = (e) => {
         e.preventDefault();
-        const { value } = e.target;
+        const  value  = (e.target.validity.valid) ? e.target.value : this.props.currencyAmount ;
         this.props.updateCurrencyAmount(value);
     }
 
@@ -46,6 +47,7 @@ export class CCMain extends Component {
             <div>
                 <input type="text"
                     name="currencyAmount"
+                    pattern="[0-9]*"
                     value={this.props.currencyAmount}
                     onChange={this.onChange} />
                 <select name="from"

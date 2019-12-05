@@ -30,7 +30,6 @@ class PropertiesPage extends Component {
     }
 
     deleteItem = (index) => {
-        // console.log('id = ', index);
         const { items } = this.state;
         this.setState({
             items: items.filter((item) => {

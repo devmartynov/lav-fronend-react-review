@@ -54,7 +54,3 @@ describe('Amount currency action test', () => {
         expect(state.reducerCalc.currencyAmount).toBe(123);
     });
 })
-
-
-
-

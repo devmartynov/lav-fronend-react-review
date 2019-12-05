@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import './Home.css';
-import { Auth } from '../LoginPage/LoginPage';
+// import { Auth } from '../LoginPage/LoginPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import PropertiesPage from '../PropertiesPage/PropertiesPage';
 import CurrencyConverter from '../CurrencyConverter/CurrencyConverter';
@@ -56,41 +56,34 @@ function homepage() {
     )
 }
 
-function logout() {
-    Auth.signout();
-}
+// function logout() {
+//     Auth.signout();
+// }
 
 const Home = () => {
     return (
         <Router>
             <div className="mainStyle">
                 <div className="mainStyle__header">
-                    <div className="header__title_middle">My Awesome Webservices</div>
-                    <div className="header__title_logout">
+                    <div className="header__title_middle">Apps on <span className="header__title_middle-bold">React+Redux</span></div>
+                    {/* <div className="header__title_logout">
                         <Link to="/login" onClick={logout}>logout</Link>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="mainStyle__container">
                     <div className="column-left">
                         <div className="column-left__menuBar ">
 
-                            <div className="menuBar__welcomeText_black">
-                                <div>Welcome,<br />
-                                    <p className="menuBar__welcomeText_red"></p>
-                                </div>
-                            </div>
-
                             <div className="menuBar__options">
                                 <div className="menuBar__options-content">
-                                    <p><Link to="/home">Home</Link></p>
-                                    <p><Link to="/properties">Service</Link></p>
-                                    <p><Link to="/weather">Weather</Link></p>
-                                    <p><Link to="/properties">Movie</Link></p>
-                                    <p><Link to="/currencyConverter">Currency Converter</Link></p>
-                                    <p><Link to="/calculator">Calculator</Link></p>
-                                    <p><Link to="/properties">Properties</Link></p>
-                                    <p><Link to="/profile">Social Card</Link></p>
+                                    <p><Link className="menuBar__options-content-link" to="/home">Home</Link></p>
+                                    <p><Link className="menuBar__options-content-link" to="/properties">ToDoList</Link></p>
+                                    <p><Link className="menuBar__options-content-link" to="/weather">Weather</Link></p>
+                                    <p><Link className="menuBar__options-content-link" to="/properties">Movie</Link></p>
+                                    <p><Link className="menuBar__options-content-link" to="/currencyConverter">Currency Converter</Link></p>
+                                    <p><Link className="menuBar__options-content-link" to="/calculator">Calculator</Link></p>
+                                    <p><Link className="menuBar__options-content-link" to="/profile">Social Card</Link></p>
                                 </div>
                             </div>
 

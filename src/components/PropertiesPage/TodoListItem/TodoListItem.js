@@ -7,7 +7,7 @@ const TodoListItem = (props) => {
             <label className="title">{props.label}</label>
             <input type="text"
                 className="textField" />
-            <button className="edit" >Edit</button>
+            {/* <button className="edit" >Edit</button> */}
             <button className="delete" 
                     onClick={props.onDelete}>Delete</button>
         </React.Fragment>

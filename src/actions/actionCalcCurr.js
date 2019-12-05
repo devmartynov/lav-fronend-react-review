@@ -44,8 +44,8 @@ export function updateCurBase(currency) {
 
 export function getCurrenciesList() {
     return dispatch => {
-        fetch(CURRENCY_CONVERTER_URL_API)
-            .then((res) => { return res.json() })
+        return fetch(CURRENCY_CONVERTER_URL_API)
+            .then((res) => { console.log(res.status); return res.json() })
             .then((result) => {
                 const currencyAr = ["EUR"];
                 for (let key in result.rates) {
@@ -56,10 +56,16 @@ export function getCurrenciesList() {
             })
             .catch((err) => {
                 console.log('Error = ', err);
+                dispatch(setCurrenciesError(err))
             })
+        
     }
 }
 
 export function setCurrencies(currencyAr) {
     return { type: "SET_CURRENCIES", currencyAr }
+}
+
+export function setCurrenciesError(error) {
+    return { type: "SET_CURRENCIES_ERROR", error }
 }

@@ -17,7 +17,7 @@ export class CCMain extends Component {
     }
     onChange = (e) => {
         e.preventDefault();
-        const  value  = (e.target.validity.valid) ? e.target.value : this.props.currencyAmount ;
+        const value = (e.target.validity.valid) ? e.target.value : this.props.currencyAmount;
         this.props.updateCurrencyAmount(value);
     }
 
@@ -45,26 +45,35 @@ export class CCMain extends Component {
     render() {
         return (
             <div>
+                <h2 className="cc__header">Currency Converter</h2>
+                <div className="cc__row">
+                    <p>Currency I have
                 <input type="text"
-                    name="currencyAmount"
-                    pattern="[0-9]*"
-                    value={this.props.currencyAmount}
-                    onChange={this.onChange} />
+                        className="cc__input-text"
+                        name="currencyAmount"
+                        pattern="[0-9]*"
+                        value={this.props.currencyAmount}
+                        onChange={this.onChange} />
                 <select name="from"
                     onChange={this.change}
                     value={this.props.currencyBase}>
                     {this.props.currencyList.map((item, key) =>
                         <option key={key}>{item}</option>)}
-                </select>
+                </select></p>
+                    <p>Currency I want
                 <select name="to"
+                    className="cc__input-text"
                     onChange={this.change}
                     value={this.props.currencyTo}>
                     {this.props.currencyList.map((item, key) =>
                         <option key={key}>{item}</option>)}
-                </select>
-                <button className="button-currency__orange"
-                    onClick={this.convert}>Convert</button>
-                <div>Result : {this.props.finalResult}</div>
+                </select></p>
+                </div>
+                <div className="cc__button">
+                    <button className="button-currency__orange"
+                        onClick={this.convert}>Convert</button>
+                </div>
+                <div className="cc__result">Result : {this.props.finalResult}</div>
             </div>
         )
     }

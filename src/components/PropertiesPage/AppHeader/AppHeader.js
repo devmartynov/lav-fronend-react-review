@@ -3,9 +3,9 @@ import React from 'react';
 
 const AppHeader = () => {
 return (
-    <div>
+    <div className="input-form__title">
         <h1 className="input-form__title 
-                   input-form__title-profile_big">Properties</h1>
+                   input-form__title-profile_big">To Do List </h1>
     </div>
 );
 };

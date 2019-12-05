@@ -27,6 +27,10 @@ body {
 .header__title_middle {
     font-size: 24px;
 }
+.header__title_middle-bold {
+    font-size: 24px;
+    font-weight: 600;
+}
 
 .header__title_logout {
     font-size: 24px;
@@ -71,6 +75,15 @@ body {
     text-align: center;
     margin-top: 30px;
 }
+.menuBar__options-content .menuBar__options-content-link {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+.menuBar__options-content .menuBar__options-content-link:hover {
+    color: orange;
+}
 
 .column-right__profile {
     background-color: #eeeeee;
@@ -89,12 +102,6 @@ body {
 .input-form__profile {
     width: 526px;
 }
-
-/* .input-form__title-profile_big {
-    font-size: 22px;
-    font-weight: 400;
-    margin-bottom: 20px;
-} */
 
 .input-form__title-profile_big {
     font-size: 22px;

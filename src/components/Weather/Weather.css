@@ -14,3 +14,16 @@
 .weather-block__center {
     text-align: center;
 }
+.weather__input-text {
+    height: 18px;
+    border-radius: 2px;
+    border: 1px solid black;
+    margin-right: 10px;
+}
+.weather__forecast_number{
+    color: orange;
+}
+.weather__forecast_title {
+    color: orange;
+    font-size: 20px;
+}

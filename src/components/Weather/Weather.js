@@ -69,10 +69,12 @@ class Weather extends Component {
         return (
             <div className="weather-block__center">
                 <input type="text"
+                    className="weather__input-text"
                     name="city"
                     value={city}
                     onChange={this.onChange} />
                 <input type="text"
+                    className="weather__input-text"
                     name="country"
                     value={country}
                     onChange={this.onChange} />
@@ -80,24 +82,24 @@ class Weather extends Component {
                     onClick={this.getWeather}>Get Weather</button>
                 <div> {this.state.showWeather && <React.Fragment>
                     <div>
-                        <h2>
+                        <h2 className="weather__forecast_title">
                             {this.state.cityToShow}<span>, </span>
                             {this.state.countryToShow}
                         </h2>
                     </div>
                     <div>
                         <h3><p>Temperature</p> 
-                            {this.state.temp}
+                            <span className="weather__forecast_number">{this.state.temp}</span>
                         </h3>
                     </div>
                     <div>
                         <h3>
                             <p>Min. temp</p>
-                            {this.state.minTemp}
+                            <span className="weather__forecast_number">{this.state.minTemp}</span>
                         </h3>
                         <h3>
                            <p>Max. temp</p>
-                          {this.state.maxTemp}
+                           <span className="weather__forecast_number">{this.state.maxTemp}</span>
                         </h3>
                     </div>
                     <div> <h3>

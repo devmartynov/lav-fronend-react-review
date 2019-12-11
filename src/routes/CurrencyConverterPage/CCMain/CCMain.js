@@ -7,7 +7,7 @@ import {
     updateCurrencyTarget,
     updateCurrencyAmount,
     calculateResult
-} from "../../../actions/actionCalcCurr";
+} from "../../../actions/calculateCurrency";
 import './CCMain.css';
 import { CURRENCY_CONVERTER_URL_API } from "../../../actions/actionTypes";
 

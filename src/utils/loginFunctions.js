@@ -1,14 +1,14 @@
 const make_base_auth = (user, password) => {
-    const token = user + ":" + password;
+    const token = user + ':' + password;
     const hash = btoa(token);
-    return "Basic " + hash;
-}
+    return 'Basic ' + hash;
+};
 
 const handleErrors = (response) => {
     if (!response.ok) {
         throw Error(response.status);
     }
     return response;
-}
+};
 
-export {handleErrors, make_base_auth}
+export { handleErrors, make_base_auth };

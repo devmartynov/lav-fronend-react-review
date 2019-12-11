@@ -1,10 +1,10 @@
 # React+Redux page with
 
 + TodoList app
-+ Weather app
++ WeatherPage app
 + Movie (not done yet)
 + Currency Converter app
-+ Calculator app
++ CalculatorPage app
 + Social Card (not done yet)
 
 ### Built with:

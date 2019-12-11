@@ -2,7 +2,7 @@ import React from 'react';
 import CCMain from './CCMain/CCMain';
 
 
-const CurrencyConverter = () => {
+const CurrencyConverterPage = () => {
     return (
         <div>
             <CCMain />
@@ -10,4 +10,4 @@ const CurrencyConverter = () => {
     )
 }
 
-export default CurrencyConverter;
+export default CurrencyConverterPage;

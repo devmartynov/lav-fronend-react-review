@@ -1,49 +1,52 @@
-import React, { Component } from 'react';
-import './Weather.css';
+import React from 'react';
 
-const initiateState = {
-    temp: '',
-    maxTemp: '',
-    minTemp: '',
-    main: '',
-    city: 'Riga',
-    cityToShow: '',
-    countryToShow:'',
-    country: 'LV',
-    showWeather: false,
-    showError: false
-}
+import './WeatherPage.css';
 
-class Weather extends Component {
+class WeatherPage extends React.PureComponent {
+
     constructor(props) {
         super(props);
-        this.state = initiateState;
+
+        this.state = {
+            temp: '',
+            maxTemp: '',
+            minTemp: '',
+            main: '',
+            city: 'Riga',
+            cityToShow: '',
+            countryToShow: '',
+            country: 'LV',
+            showWeather: false,
+            showError: false,
+        };
     }
 
     onChange = (e) => {
         e.preventDefault();
-        if (e.target.name === "city") {
+        if (e.target.name === 'city') {
             this.setState({
-                city: e.target.value
-            })
+                city: e.target.value,
+            });
         }
-        if (e.target.name === "country") {
+        if (e.target.name === 'country') {
             this.setState({
-                country: e.target.value
-            })
+                country: e.target.value,
+            });
         }
-    }
+    };
     getWeather = (e) => {
         e.preventDefault();
         console.log('Getting weather ...');
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city},${this.state.country}&units=metric&appid=${process.env.REACT_APP_WEATHER_APPID}`)
-            .then((res) => { return res.json() })
+            .then((res) => {
+                return res.json();
+            })
             .then((result) => {
                 //console.log(result.weather[0].main);
                 if (!this.state.showWeather) {
                     this.setState({
-                        showWeather: !this.state.showWeather
-                    })
+                        showWeather: !this.state.showWeather,
+                    });
                 }
                 this.setState({
                     minTemp: result.main.temp_min,
@@ -52,34 +55,35 @@ class Weather extends Component {
                     main: result.weather[0].description,
                     cityToShow: this.state.city,
                     countryToShow: this.state.country,
-                    showError: false
-                })
+                    showError: false,
+                });
             })
             .catch(err => {
                 console.log('Error = ', err);
                 this.setState({
                     showWeather: false,
-                    showError: true
-                })
-            })
-    }
+                    showError: true,
+                });
+            });
+    };
 
     render() {
-        const { city, country } = this.state;
+        const {city, country} = this.state;
         return (
             <div className="weather-block__center">
                 <input type="text"
-                    className="weather__input-text"
-                    name="city"
-                    value={city}
-                    onChange={this.onChange} />
+                       className="weather__input-text"
+                       name="city"
+                       value={city}
+                       onChange={this.onChange}/>
                 <input type="text"
-                    className="weather__input-text"
-                    name="country"
-                    value={country}
-                    onChange={this.onChange} />
+                       className="weather__input-text"
+                       name="country"
+                       value={country}
+                       onChange={this.onChange}/>
                 <button className="button-weather__orange"
-                    onClick={this.getWeather}>Get Weather</button>
+                        onClick={this.getWeather}>Get Weather
+                </button>
                 <div> {this.state.showWeather && <React.Fragment>
                     <div>
                         <h2 className="weather__forecast_title">
@@ -88,7 +92,7 @@ class Weather extends Component {
                         </h2>
                     </div>
                     <div>
-                        <h3><p>Temperature</p> 
+                        <h3><p>Temperature</p>
                             <span className="weather__forecast_number">{this.state.temp}</span>
                         </h3>
                     </div>
@@ -98,19 +102,21 @@ class Weather extends Component {
                             <span className="weather__forecast_number">{this.state.minTemp}</span>
                         </h3>
                         <h3>
-                           <p>Max. temp</p>
-                           <span className="weather__forecast_number">{this.state.maxTemp}</span>
+                            <p>Max. temp</p>
+                            <span className="weather__forecast_number">{this.state.maxTemp}</span>
                         </h3>
                     </div>
-                    <div> <h3>
+                    <div><h3>
                         {this.state.main}</h3>
-                    </div> </React.Fragment>}
+                    </div>
+                </React.Fragment>}
                     {this.state.showError && <div className="weather-error">Incorrect City or Country</div>}
                 </div>
 
             </div>
-        )
+        );
     }
 
 }
-export default Weather;
+
+export default WeatherPage;

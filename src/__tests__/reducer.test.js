@@ -4,7 +4,7 @@ import {
     updateCurrencyBase,
     updateCurrencyTarget,
     updateCurrencyAmount
-} from '../actions/actionCalcCurr';
+} from '../actions/calculateCurrency';
 
 
 describe('reducer testing', () => {

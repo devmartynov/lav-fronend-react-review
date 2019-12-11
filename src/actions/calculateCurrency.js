@@ -1,5 +1,5 @@
 import { CURRENCY_CONVERTER_URL_API } from "./actionTypes";
-import store from '../redux/store';
+import { store } from '../redux/store';
 
 export function fetchCurrencies() {
     return dispatch => {

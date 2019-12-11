@@ -1,4 +1,4 @@
-import * as actions from '../actions/actionCalcCurr';
+import * as actions from '../actions/calculateCurrency';
 
 describe('actions', () => {
     it('should create an action', () => {

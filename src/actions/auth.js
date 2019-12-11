@@ -1,5 +1,5 @@
 import { handleErrors, make_base_auth } from '../utils/loginFunctions';
-import { history } from '../components/App/App';
+import { history } from '../redux/store';
 import {
     SET_LOGIN_PENDING,
     SET_LOGIN_SUCCESS,
@@ -13,7 +13,6 @@ export function login(username, password) {
 
         const url = BACKEND_URL + "me";
         const headers = new Headers();
-        console.log(username, password)
         headers.append("Authorization", make_base_auth(username, password));
         headers.append("Content-Type", "application/json");
 
@@ -32,7 +31,6 @@ export function login(username, password) {
                 history.push('/home');
             })
             .catch(error => {
-                console.log(error);
                 dispatch(setLoginSuccess(false));
                 dispatch(setLoginPending(false));
                 dispatch(setLoginError(error));

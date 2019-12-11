@@ -4,7 +4,7 @@ import AppHeader from './AppHeader/AppHeader';
 import ItemAddForm from './ItemAddForm/ItemAddForm';
 import TodoList from './TodoList/TodoList';
 
-class PropertiesPage extends Component {
+export default class PropertiesPage extends Component {
 
     genId = 50;
 
@@ -50,5 +50,3 @@ class PropertiesPage extends Component {
         )
     }
 }
-
-export default PropertiesPage;

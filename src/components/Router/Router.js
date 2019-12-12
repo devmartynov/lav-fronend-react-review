@@ -4,7 +4,6 @@ import { ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router-dom';
 
 import { history } from '../../redux/store';
-import Layout from '../Layout';
 
 export default class Router extends React.PureComponent {
 
@@ -28,7 +27,7 @@ export default class Router extends React.PureComponent {
     }
 
     renderContent() {
-        const WrapperComponent = Layout;
+        const WrapperComponent = this.props.wrapperView;
         const routes = (
             <Switch>
                 {this.props.routes.map((route) => (

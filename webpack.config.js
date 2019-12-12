@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const DotenvPlugin = require('webpack-dotenv-plugin');
 
 module.exports = {
     entry: {
@@ -73,6 +74,10 @@ module.exports = {
         port: 9000,
     },
     plugins: [
+        new DotenvPlugin({
+            sample: './.env',
+            path: './.env'
+        }),
         new MiniCssExtractPlugin({
             filename: 'style.css',
         }),

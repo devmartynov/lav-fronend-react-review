@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: {
@@ -68,9 +67,10 @@ module.exports = {
         ],
     },
     devServer: {
-        contentBase: './src',
+        contentBase: './public',
         hot: true,
         watchContentBase: true,
+        port: 9000,
     },
     plugins: [
         new MiniCssExtractPlugin({

@@ -22,11 +22,9 @@ export default class Layout extends React.PureComponent {
                         <div className="column-left__menuBar ">
                             <div className="menuBar__options">
                                 <div className="menuBar__options-content">
-                                    <p><Link className="menuBar__options-content-link-first" to="/home">Home</Link></p>
-                                    <p><Link className="menuBar__options-content-link" to="/properties">ToDoList</Link></p>
+                                    <p><Link className="menuBar__options-content-link" to="/todo">ToDoList</Link></p>
                                     <p><Link className="menuBar__options-content-link" to="/weather">Weather</Link></p>
-                                    <p><Link className="menuBar__options-content-link" to="/properties">Movie</Link></p>
-                                    <p><Link className="menuBar__options-content-link" to="/currencyConverter">Currency Converter</Link></p>
+                                    <p><Link className="menuBar__options-content-link" to="/currency-converter">Currency Converter</Link></p>
                                     <p><Link className="menuBar__options-content-link" to="/calculator">Calculator</Link></p>
                                     <p><Link className="menuBar__options-content-link" to="/profile">Social Card</Link></p>
                                 </div>

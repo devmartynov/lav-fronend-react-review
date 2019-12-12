@@ -10,10 +10,11 @@ export const ROUTE_PROFILE = 'profile';
 export const ROUTE_CALCULATOR = 'calculator';
 export const ROUTE_WEATHER = 'weather';
 export const ROUTE_CURRENCY_CONVERTER = 'currency_converter';
-export const ROUTE_BOOKS = 'books';
+export const ROUTE_PROPERTIES = 'properties';
 
 export default [
     {
+        id: ROUTE_PROPERTIES,
         path: '/properties',
         component: PropertiesPage,
     },
@@ -42,6 +43,5 @@ export default [
         path: '/',
         component: IndexPage,
     },
-
 ];
 

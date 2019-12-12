@@ -1,0 +1,16 @@
+.CalculatorPage {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+
+    &__row {
+        display: flex;
+    }
+
+    &__button {
+        &:nth-child(4n) {
+            background-color: orange;
+        }
+    }
+}

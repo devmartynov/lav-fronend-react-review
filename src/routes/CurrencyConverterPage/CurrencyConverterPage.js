@@ -1,13 +1,16 @@
 import React from 'react';
-import CCMain from './CCMain/CCMain';
 
+import CurrencyConverter from './CurrencyConverter/CurrencyConverter';
 
-const CurrencyConverterPage = () => {
-    return (
-        <div>
-            <CCMain />
-        </div>
-    )
+import './CurrencyConverterPage.scss';
+
+export default class CurrencyConverterPage extends React.PureComponent {
+
+    render() {
+        return (
+            <div className='CurrencyConverterPage'>
+                <CurrencyConverter/>
+            </div>
+        );
+    }
 }
-
-export default CurrencyConverterPage;

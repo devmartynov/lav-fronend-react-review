@@ -9,6 +9,7 @@ export default class Button extends React.PureComponent {
         className: PropTypes.string,
         label: PropTypes.string,
         onClick: PropTypes.func,
+        disabled: PropTypes.bool,
     };
 
     constructor(props) {
@@ -22,6 +23,7 @@ export default class Button extends React.PureComponent {
             <button
                 className={'Button' + (this.props.className ? ` ${this.props.className}` : '')}
                 onClick={this._onClick}
+                disabled={this.props.disabled}
             >
                 {this.props.label}
             </button>

@@ -30,9 +30,9 @@ export default class Router extends React.PureComponent {
         const WrapperComponent = this.props.wrapperView;
         const routes = (
             <Switch>
-                {this.props.routes.map((route) => (
+                {this.props.routes.map((route, index) => (
                     <Route
-                        key={route.id}
+                        key={route.id + index}
                         render={props => this._renderItem(route, props)}
                         {...route}
                         component={null}

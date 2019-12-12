@@ -40,6 +40,7 @@ export default class CalculatorPage extends React.PureComponent {
                 {buttonsValues.map(value => (
                     <Button
                         className='CalculatorPage__button'
+                        key={value}
                         label={value}
                         onClick={() => value === '=' ? this.calculate() : this.clickHandler(value)}
                     />
@@ -49,7 +50,7 @@ export default class CalculatorPage extends React.PureComponent {
     }
 
     clickHandler(key) {
-        if (this.state.result === '0') {
+        if (this.state.result === '0' && key !== 'c') {
             this.setState({
                 result: key,
             });
